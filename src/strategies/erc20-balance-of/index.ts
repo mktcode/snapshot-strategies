@@ -16,7 +16,7 @@ export async function strategy(
 ): Promise<Record<string, number>> {
   const blockTag = typeof snapshot === 'number' ? snapshot : 'latest';
 
-  const ethcallProvider = new Provider(1, provider);
+  const ethcallProvider = new Provider(network, provider);
   const tokenContract = new Contract(options.address, erc20Abi);
   const calls = addresses.map((address) => tokenContract.balanceOf(address));
 
